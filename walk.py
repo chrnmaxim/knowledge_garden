@@ -39,6 +39,7 @@ def get_file_times(path: str) -> tuple[datetime.datetime, datetime.datetime]:
 exclude_folders = [
     "attachments",
     "content",
+    ".obsidian",
 ]
 
 toc_dirs = ""
@@ -63,12 +64,12 @@ for root, dirs, files in os.walk(CONTENT_PATH):
     for file in files:
         if file.endswith("md"):
             title = file[:-3]
-            toc_full += file_tabs * "\t" + f"- 📄 [[{title}]]<br>\n"
+            toc_full += file_tabs * "\t" + f"   - 📄 [[{title}]]<br>\n"
 
-            # # Добавим ссылку на директорию в конце каждой заметки
-            # full_path = os.path.join(root, file)
-            # dt_c, dt_m = get_file_times(full_path)
-            # notes.append(Note(title=title, updated_at=dt_m))
+            # Добавим ссылку на директорию в конце каждой заметки
+            full_path = os.path.join(root, file)
+            dt_c, dt_m = get_file_times(full_path)
+            notes.append(Note(title=title, updated_at=dt_m))
             # with open(file=full_path, mode="a", encoding="utf-8") as note:
             #     note.write(f"\n\n----\n📂 [[{folder}]] | Последнее изменение: {dt_m.strftime(format="%d.%m.%Y %H:%M")}")
 
@@ -91,7 +92,7 @@ title: Главная
 
 ----
 
-### Недавно обновлённые заметки
+## Недавно обновлённые заметки
 
 {last_updated_notes}
 
