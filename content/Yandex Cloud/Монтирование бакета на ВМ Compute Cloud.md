@@ -1,3 +1,11 @@
+---
+title: Монтирование бакета на ВМ Compute Cloud
+tags:
+  - ObjectStorage
+  - S3
+date: created
+draft: false
+---
 ### Начало работы
 
 #### 1. Установить rclone на Linux:
@@ -111,4 +119,6 @@ systemctl --user enable --now rclone@dev
 * [Документация rclone.](https://rclone.org/commands/rclone_mount/)
 * [Документация Yandex Cloud. Подключение бакета как диска в Windows.](https://yandex.cloud/ru/docs/storage/tutorials/s3-disk-connect?utm_referrer=about%3Ablank)
 * [Rclone systemd service. GitHub Gist](https://gist.github.com/kabili207/2cd2d637e5c7617411a666d8d7e97101)
-* [Can't expose a fuse based volume to a Docker container](https://stackoverflow.com/questions/28865407/cant-expose-a-fuse-based-volume-to-a-docker-container) ^5bb1be
+* [Can't expose a fuse based volume to a Docker container](https://stackoverflow.com/questions/28865407/cant-expose-a-fuse-based-volume-to-a-docker-container) 
+
+
