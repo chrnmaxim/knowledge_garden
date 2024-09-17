@@ -15,7 +15,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "chrnmaxim.github.io/knowledge_garden/",
+    baseUrl: "chrnmaxim.github.io/knowledge_garden",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
     theme: {
