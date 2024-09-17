@@ -20,9 +20,9 @@ rclone mount s3-connect:<имя_бакета>  <директория> --vfs-cach
 `--vfs-cache-mode off`
 
 	In this mode (the default) the cache will read directly from the remote and write directly to the remote without caching anything on disk.
-	
+
 	This will mean some operations are not possible
-	
+
 	- Files can't be opened for both read AND write
 	- Files opened for write can't be seeked
 	- Existing files opened for write must have O_TRUNC set
@@ -33,10 +33,10 @@ rclone mount s3-connect:<имя_бакета>  <директория> --vfs-cach
 `--allow-non-empty`
 
 	Allow mounting over a non-empty directory
-	
+
 `--daemon`
 
-	Run mount in background and exit parent process 
+	Run mount in background and exit parent process
 
 #### 2. Удалить маунт
 ```bash
@@ -90,7 +90,7 @@ WantedBy=default.target
 
 	Необходимо для запуска демона после перезагрузки ВМ.
 
-Чтобы разрешить доступ к маунту всем пользователям, если активирован флаг `--allow-other `, раскомментировать опцию `user_allow_other` в 
+Чтобы разрешить доступ к маунту всем пользователям, если активирован флаг `--allow-other `, раскомментировать опцию `user_allow_other` в
 ```bash
 sudo nano /etc/fuse.conf
 ```
@@ -117,6 +117,7 @@ systemctl --user enable --now rclone@dev
 * [Документация rclone](https://rclone.org/commands/rclone_mount/)
 * [Документация Yandex Cloud. Подключение бакета как диска в Windows](https://yandex.cloud/ru/docs/storage/tutorials/s3-disk-connect?utm_referrer=about%3Ablank)
 * [Rclone systemd service. GitHub Gist](https://gist.github.com/kabili207/2cd2d637e5c7617411a666d8d7e97101)
-* [Can't expose a fuse based volume to a Docker container](https://stackoverflow.com/questions/28865407/cant-expose-a-fuse-based-volume-to-a-docker-container) 
+* [Can't expose a fuse based volume to a Docker container](https://stackoverflow.com/questions/28865407/cant-expose-a-fuse-based-volume-to-a-docker-container)
 
-
+----
+📂 [[Yandex Cloud]] | Последнее изменение: 17.09.2024 16:02

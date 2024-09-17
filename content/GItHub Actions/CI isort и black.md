@@ -1,9 +1,8 @@
 ---
-title: CD в Compute Cloud с GitHub Action
+title: CI isort и black
 draft: false
 tags:
-  - CD
-  - YandexCloud
+  - CI
 ---
 
 ----
