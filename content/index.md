@@ -13,32 +13,32 @@ title: Главная
 
 ## Недавно обновлённые заметки
 
-- [[Конфликт Docker и UFW]]
-- [[Монтирование бакета на ВМ Compute Cloud]]
-- [[Подключение Container Registry к ВМ]]
-- [[FastAPI]]
-- [[CD в Compute Cloud с GitHub Action]]
 - [[CI isort и black]]
+- [[Подключение Container Registry к ВМ]]
+- [[Монтирование бакета на ВМ Compute Cloud]]
+- [[Конфликт Docker и UFW]]
 - [[CI тесты в Docker c использованием make]]
+- [[CD в Compute Cloud с GitHub Action]]
+- [[FastAPI]]
 
 
 ----
 
 ## Краткое оглавление
-- 📂 [[FastAPI]]<br>
-- 📂 [[GItHub Actions]]<br>
-- 📂 [[Yandex Cloud]]<br>
+### 📂 [[FastAPI]]
+### 📂 [[GitHub Actions]]
+### 📂 [[Yandex Cloud]]
 
 
 ## Полное оглавление
-- 📂 [[FastAPI]]<br>
-   - 📄 [[FastAPI]]<br>
-- 📂 [[GItHub Actions]]<br>
-   - 📄 [[CD в Compute Cloud с GitHub Action]]<br>
-   - 📄 [[CI isort и black]]<br>
-   - 📄 [[CI тесты в Docker c использованием make]]<br>
-- 📂 [[Yandex Cloud]]<br>
-   - 📄 [[Конфликт Docker и UFW]]<br>
-   - 📄 [[Монтирование бакета на ВМ Compute Cloud]]<br>
-   - 📄 [[Подключение Container Registry к ВМ]]<br>
+### 📂 [[FastAPI]]
+- #### 📄 [[FastAPI]]
+### 📂 [[GitHub Actions]]
+- #### 📄 [[CD в Compute Cloud с GitHub Action]]
+- #### 📄 [[CI isort и black]]
+- #### 📄 [[CI тесты в Docker c использованием make]]
+### 📂 [[Yandex Cloud]]
+- #### 📄 [[Конфликт Docker и UFW]]
+- #### 📄 [[Монтирование бакета на ВМ Compute Cloud]]
+- #### 📄 [[Подключение Container Registry к ВМ]]
 

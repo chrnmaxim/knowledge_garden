@@ -8,6 +8,7 @@ import os
 
 CONTENT_PATH = "./content"
 
+
 class Note:
     def __init__(self, title: str, updated_at: datetime.datetime) -> None:
         self.title = title
@@ -40,6 +41,9 @@ exclude_folders = [
     "attachments",
     "content",
     ".obsidian",
+    "plugins",
+    "templates",
+    "templater-obsidian",
 ]
 
 toc_dirs = ""
@@ -57,14 +61,14 @@ for root, dirs, files in os.walk(CONTENT_PATH):
     file_tabs = len(path) - 2
     folder_tabs = file_tabs - 1
 
-    line = folder_tabs * "\t" + f"- 📂 [[{folder}]]<br>\n"
+    line = folder_tabs * "\t" + f"### 📂 [[{folder}]]\n"
     toc_dirs += line
     toc_full += line
 
     for file in files:
         if file.endswith("md"):
             title = file[:-3]
-            toc_full += file_tabs * "\t" + f"   - 📄 [[{title}]]<br>\n"
+            toc_full += file_tabs * "\t" + f"- #### 📄 [[{title}]]\n"
 
             # Добавим ссылку на директорию в конце каждой заметки
             full_path = os.path.join(root, file)
