@@ -67,15 +67,22 @@ for root, dirs, files in os.walk(CONTENT_PATH):
 
     for file in files:
         if file.endswith("md"):
-            title = file[:-3]
+            title = file[:-4]
             toc_full += file_tabs * "\t" + f"- #### 📄 [[{title}]]\n"
 
-            # Добавим ссылку на директорию в конце каждой заметки
+            # Добавим ссылку на директорию в конце каждой заметки и дату изменения заметки
             full_path = os.path.join(root, file)
             dt_c, dt_m = get_file_times(full_path)
             notes.append(Note(title=title, updated_at=dt_m))
-            # with open(file=full_path, mode="a", encoding="utf-8") as note:
-            #     note.write(f"\n\n----\n📂 [[{folder}]] | Последнее изменение: {dt_m.strftime(format="%d.%m.%Y %H:%M")}")
+            with open(file=full_path, mode="r", encoding="utf-8") as note:
+                lines = note.readlines()
+            # Если уже есть метка с датами, удаляем 6 последних строк
+            if "Последнее изменение" in lines[-1]:
+                lines = lines[:-6]
+            # Добавляем даты создания и изменения файлов.
+            lines.append(f"----\n📂 [[{folder}]]\n\nCоздано: {dt_c.strftime(format="%d.%m.%Y %H:%M")}\n\nПоследнее изменение: {dt_m.strftime(format="%d.%m.%Y %H:%M")}")
+            with open(file=full_path, mode="w", encoding="utf-8") as note:
+                note.writelines(lines)
 
 # Получить список 10 последних обновленных заметок
 notes.sort(key=lambda x: x.updated_at, reverse=True)
