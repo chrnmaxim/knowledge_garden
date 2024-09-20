@@ -120,4 +120,8 @@ systemctl --user enable --now rclone@dev
 * [Can't expose a fuse based volume to a Docker container](https://stackoverflow.com/questions/28865407/cant-expose-a-fuse-based-volume-to-a-docker-container)
 
 ----
-📂 [[Yandex Cloud]] | Последнее изменение: 17.09.2024 16:02
+📂 [[Yandex Cloud]]
+
+Cоздано: 18.09.2024 08:25
+
+Последнее изменение: 20.09.2024 15:52
