@@ -19,9 +19,9 @@ rclone mount s3-connect:<имя_бакета>  <директория> --vfs-cach
 ```
 `--vfs-cache-mode off`
 
-	In this mode (the default) the cache will read directly from the remote and write directly to the remote without caching anything on disk.
+In this mode (the default) the cache will read directly from the remote and write directly to the remote without caching anything on disk.
 
-	This will mean some operations are not possible
+This will mean some operations are not possible
 
 	- Files can't be opened for both read AND write
 	- Files opened for write can't be seeked
@@ -32,11 +32,11 @@ rclone mount s3-connect:<имя_бакета>  <директория> --vfs-cach
 	- If an upload fails it can't be retried
 `--allow-non-empty`
 
-	Allow mounting over a non-empty directory
+Allow mounting over a non-empty directory
 
 `--daemon`
 
-	Run mount in background and exit parent process
+Run mount in background and exit parent process
 
 #### 2. Удалить маунт
 ```bash
@@ -72,25 +72,27 @@ ExecStop=/bin/fusermount -u /home/<user>/<ditecroty>/&i
 WantedBy=default.target
 ```
 
-`--allow-other `
+* `--allow-other `
 
 	Allow access to other users
-`--allow-root`
+
+* `--allow-root`
 
 	Allow access to root user
-Необходимо для обхода [[#^5bb1be|ошибки запуска]] Docker контейнера с монтированным бакетом в качестве volume.
+	Необходимо для обхода [[#^384334|ошибки запуска]] Docker контейнера с монтированным бакетом в качестве volume.
 
-`%i`
+* `%i`
 
 	Постфикс бакета и директории.
 	Например, для бакета backend-dev == backend-%i.
 	Позволяет создавать несколько запущенных демонов для разных бакетов и директорий.
 	Можно использовать вместо имени бакета.
-`WantedBy=default.target`
+
+* `WantedBy=default.target`
 
 	Необходимо для запуска демона после перезагрузки ВМ.
 
-Чтобы разрешить доступ к маунту всем пользователям, если активирован флаг `--allow-other `, раскомментировать опцию `user_allow_other` в
+Чтобы разрешить доступ к маунту всем пользователям, если активирован флаг `--allow-other` , раскомментировать опцию `user_allow_other` в
 ```bash
 sudo nano /etc/fuse.conf
 ```
@@ -111,15 +113,15 @@ systemctl --user status rclone@dev
 systemctl --user enable --now rclone@dev
 ```
 
-	После `@` указывается постфикс  бакета.
-
+* После `@` указывается постфикс  бакета.
+ 
 ### Документация
 * [Документация rclone](https://rclone.org/commands/rclone_mount/)
 * [Документация Yandex Cloud. Подключение бакета как диска в Windows](https://yandex.cloud/ru/docs/storage/tutorials/s3-disk-connect?utm_referrer=about%3Ablank)
 * [Rclone systemd service. GitHub Gist](https://gist.github.com/kabili207/2cd2d637e5c7617411a666d8d7e97101)
-* [Can't expose a fuse based volume to a Docker container](https://stackoverflow.com/questions/28865407/cant-expose-a-fuse-based-volume-to-a-docker-container)
+* [Can't expose a fuse based volume to a Docker container](https://stackoverflow.com/questions/28865407/cant-expose-a-fuse-based-volume-to-a-docker-container) ^384334
 
 ----
 📂 [[Yandex Cloud]]
 
-Последнее изменение: 20.09.2024 15:57
+Последнее изменение: 21.09.2024 20:08
