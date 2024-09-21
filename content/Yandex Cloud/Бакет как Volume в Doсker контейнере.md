@@ -11,8 +11,7 @@ tags:
 
 ```docker-compose
 volumes:
-  - ./logs:/app/logs
-  - ./media/dev:/app/media
+  - ./<монтированная директория бакета>/:/app/<директория в docker контейнере>
 ```
 
 Для доступа к файлам бакета из контейнера необходимо в конфигурации 
@@ -21,6 +20,7 @@ volumes:
 --vfs-cache-mode writes
 ```
  * In this mode all reads and writes are buffered to and from disk. When data is read from the remote this is buffered to disk as well.
+ 
  А также разрешить доступ root пользователю к монтированной директории.
 ```bash
 --allow-root
@@ -69,4 +69,4 @@ systemctl --user restart rclone@<%i>.service
 ----
 📂 [[Yandex Cloud]]
 
-Последнее изменение: 21.09.2024 20:08
+Последнее изменение: 21.09.2024 20:15
