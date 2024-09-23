@@ -19,8 +19,8 @@ title: Главная
 - [[Конфликт Docker и UFW]]
 - [[Бакет как Volume в Doсker контейнере]]
 - [[CI тесты в Docker c использованием make]]
-- [[CI isort и black]]
 - [[CD в Compute Cloud с GitHub Action]]
+- [[CI isort и black]]
 - [[FastAPI]]
 
 
