@@ -49,6 +49,7 @@ exclude_folders = [
     "plugins",
     "templates",
     "templater-obsidian",
+    "obsidian-git",
 ]
 
 toc_dirs = ""
