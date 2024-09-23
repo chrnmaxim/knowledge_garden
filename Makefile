@@ -1,5 +1,5 @@
 prepare:
-	poetry run walk.py
+	poetry run python walk.py
 serve:
 	make prepare
 	npx quartz build --serve
