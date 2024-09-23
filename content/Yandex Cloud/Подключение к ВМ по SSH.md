@@ -31,8 +31,9 @@ The authenticity of host '89.169.132.223 (89.169.132.223)' can't be established.
 ECDSA key fingerprint is SHA256:DfjfFB+in0q0MGi0HnqLNMdHssLfm1yRanB********.
 Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ```
+Введите в командной строке `yes` и нажмите **Enter**.
 
 ----
 📂 [[Yandex Cloud]]
 
-Последнее изменение: 23.09.2024 15:16
+Последнее изменение: 23.09.2024 15:20
