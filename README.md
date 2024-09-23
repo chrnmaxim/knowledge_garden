@@ -1,4 +1,4 @@
-## 🪴 Digital Garden
+## [🪴 Digital Garden 🔗](https://chrnmaxim.github.io/knowledge/)
 
 Cтатичный сайт-сборник заметок по Backend разработке.
 Собирается с помощью [Quartz](https://quartz.jzhao.xyz/) из заметок в [Obsidian](https://obsidian.md/).
