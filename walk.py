@@ -6,6 +6,11 @@
 import datetime
 import os
 
+from git import Repo
+
+repo = Repo(os.getcwd())
+
+
 CONTENT_PATH = "./content"
 
 
@@ -38,7 +43,7 @@ def get_file_times(path: str) -> tuple[datetime.datetime, datetime.datetime]:
 
 
 exclude_folders = [
-    "attachments",
+    "Attachments",
     "content",
     ".obsidian",
     "plugins",
@@ -49,6 +54,28 @@ exclude_folders = [
 toc_dirs = ""
 toc_full = ""
 notes: list[Note] = []
+
+# Ищем обновленные файлы Git репозитория.
+updated_files = []
+for item in repo.index.diff(None):
+    path: str = item.a_path
+    root = path.split("/")
+    if root[0] != "content" or len(root) < 3:
+        continue
+    folder = root[1]
+    file = root[2]
+    updated_files.append(file)
+
+# Ищем новые файлы Git репозитория.
+untracked_files = []
+for item in repo.untracked_files:
+    path: str = item
+    root = path.split("/")
+    if root[0] != "content":
+        continue
+    folder = root[1]
+    file = root[2]
+    untracked_files.append(file)
 
 # traverse root directory, and list directories as dirs and files as files
 for root, dirs, files in os.walk(CONTENT_PATH):
@@ -74,15 +101,19 @@ for root, dirs, files in os.walk(CONTENT_PATH):
             full_path = os.path.join(root, file)
             dt_c, dt_m = get_file_times(full_path)
             notes.append(Note(title=title, updated_at=dt_m))
-            with open(file=full_path, mode="r", encoding="utf-8") as note:
-                lines = note.readlines()
-            # Если уже есть метка с датами, удаляем 4 последние строки
-            if "Последнее изменение" in lines[-1]:
-                lines = lines[:-4]
-            # Добавляем дату изменения файлов.
-            lines.append(f"----\n📂 [[{folder}]]\n\nПоследнее изменение: {dt_m.strftime(format="%d.%m.%Y %H:%M")}")
-            with open(file=full_path, mode="w", encoding="utf-8") as note:
-                note.writelines(lines)
+            # Обновляем только новые или измененные файлы Git репозитория.
+            if file in updated_files or file in untracked_files:
+                with open(file=full_path, mode="r", encoding="utf-8") as note:
+                    lines = note.readlines()
+                # Если уже есть метка с датами, удаляем 4 последние строки
+                if "Последнее изменение" in lines[-1]:
+                    lines = lines[:-4]
+                # Добавляем дату изменения файлов.
+                lines.append(
+                    f"----\n📂 [[{folder}]]\n\nПоследнее изменение: {dt_m.strftime(format='%d.%m.%Y %H:%M')}"
+                )
+                with open(file=full_path, mode="w", encoding="utf-8") as note:
+                    note.writelines(lines)
 
 # Получить список 10 последних обновленных заметок
 notes.sort(key=lambda x: x.updated_at, reverse=True)

@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "knowledge"
+version = "0.1.0"
+description = "My Digital Garden"
+authors = ["chrnmaxim <chrn.maxim@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+isort = "^5.13.2"
+black = "^24.8.0"
+gitpython = "^3.1.43"
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
