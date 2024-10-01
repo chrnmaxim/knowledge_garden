@@ -6,8 +6,9 @@ tags:
 ---
 ### Документация
 * [Документация FastAPI](https://fastapi.tiangolo.com/)
+* [Full Stack FastAPI Template](https://github.com/fastapi/full-stack-fastapi-template)
 
 ----
 📂 [[FastAPI]]
 
-Последнее изменение: 20.09.2024 15:57
+Последнее изменение: 01.10.2024 16:18
