@@ -13,10 +13,10 @@ title: Главная
 
 ## Недавно обновлённые заметки
 
-- [[FastAPI]]
-- [[CI тесты в Docker c использованием make]]
-- [[Pytest. Фикстуры]]
 - [[UV]]
+- [[Pytest. Фикстуры]]
+- [[CI тесты в Docker c использованием make]]
+- [[FastAPI]]
 - [[Poetry]]
 - [[sed - изменение секретов .env файла]]
 - [[CI isort и black]]
